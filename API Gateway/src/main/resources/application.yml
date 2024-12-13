@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: file-service
+          uri: lb://FILE-SERVICE
+          predicates:
+            - Path=/files/**
+        - id: ocr-service
+          uri: lb://OCR-SERVICE
+          predicates:
+            - Path=/ocr/**
